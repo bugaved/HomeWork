@@ -10,9 +10,9 @@ public class HomeWork55 {
     public static void main(String[] args) {
         int ni = 0;
         int nk = 0;
-        int m[][] = new int[i][k];
-               Num xxx = new Num(ni,nk,m[i][k]);     
-               System.out.println(getNumOfHits);
+  
+               Num xxx = new Num(ni,nk);     
+               System.out.println(xxx.getNumOfHits());
     }
 
 }
