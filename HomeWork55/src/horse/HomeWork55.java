@@ -23,47 +23,47 @@ public class HomeWork55 {
             Num xp1m2 = new Num(ni + 1, nk - 2);
             Num xm1p2 = new Num(ni - 1, nk + 2);
             Num xm1m2 = new Num(ni - 1, nk + 2);
-            if ((ni + 2 > 0) && (nk + 1 > 0) && (ni + 2 < i) && (nk + 1 < k)) {
+            if ((ni + 2 >= 0) && (nk + 1 >= 0) && (ni + 2 < i) && (nk + 1 < k)) {
                 if ((xp2p1.getNumOfHits() < k) && (m[ni + 2][nk + 1] == 0)) {
                     k = xp2p1.getNumOfHits();
                 }
             }
-            if ((ni + 2 > 0) && (nk - 1 > 0) && (ni + 2 < i) && (nk - 1 < k)) {
+            if ((ni + 2 >= 0) && (nk - 1 >= 0) && (ni + 2 < i) && (nk - 1 < k)) {
                 if ((xp2m1.getNumOfHits() < k) && (m[ni + 2][nk - 1] == 0)) {
                     k = xp2m1.getNumOfHits();
                 }
             }
-            if ((ni - 1 > 0) && (nk - 2 > 0) && (ni - 1 < i) && (nk - 2 < k)) {
+            if ((ni - 1 >= 0) && (nk - 2 >= 0) && (ni - 1 < i) && (nk - 2 < k)) {
                 if ((xm1m2.getNumOfHits() < k) && (m[ni - 1][nk - 2] == 0)) {
                     k = xm1m2.getNumOfHits();
                 }
             }
-            if ((ni - 2 > 0) && (nk + 1 > 0) && (ni - 2 < i) && (nk + 1 < k)) {
+            if ((ni - 2 >= 0) && (nk + 1 >= 0) && (ni - 2 < i) && (nk + 1 < k)) {
                 if ((xm2p1.getNumOfHits() < k) && (m[ni - 2][nk + 1] == 0)) {
                     k = xm2p1.getNumOfHits();
                 }
             }
-            if ((ni - 2 > 0) && (nk - 1 > 0) && (ni - 2 < i) && (nk - 1 < k)) {
+            if ((ni - 2 >= 0) && (nk - 1 >= 0) && (ni - 2 < i) && (nk - 1 < k)) {
                 if ((xm2m1.getNumOfHits() < k) && (m[ni - 2][nk - 1] == 0)) {
                     k = xm2m1.getNumOfHits();
                 }
             }
-            if ((ni + 1 > 0) && (nk + 2 > 0) && (ni + 1 < i) && (nk + 2 < k)) {
+            if ((ni + 1 >= 0) && (nk + 2 >= 0) && (ni + 1 < i) && (nk + 2 < k)) {
                 if ((xp1p2.getNumOfHits() < k) && (m[ni + 1][nk + 2] == 0)) {
                     k = xp1p2.getNumOfHits();
                 }
             }
-            if ((ni + 1 > 0) && (nk - 2 > 0) && (ni + 1 < i) && (nk - 2 < k)) {
+            if ((ni + 1 >= 0) && (nk - 2 >= 0) && (ni + 1 < i) && (nk - 2 < k)) {
                 if ((xp1m2.getNumOfHits() < k) && (m[ni + 1][nk - 2] == 0)) {
                     k = xp1m2.getNumOfHits();
                 }
             }
-            if ((ni - 1 > 0) && (nk + 2 > 0) && (ni - 1 < i) && (nk + 2 < k)) {
+            if ((ni - 1 >= 0) && (nk + 2 >= 0) && (ni - 1 < i) && (nk + 2 < k)) {
                 if ((xm1p2.getNumOfHits() < k) && (m[ni - 1][nk + 2] == 0)) {
                     k = xm1p2.getNumOfHits();
                 }
             }
-            if ((ni + 2 > 0) && (nk + 1 > 0) && (ni + 2 < i) && (nk + 1 < k)) {
+            if ((ni + 2 >= 0) && (nk + 1 >= 0) && (ni + 2 < i) && (nk + 1 < k)) {
                 if ((xp2p1.getNumOfHits() == k) && (turn == false) && (m[ni + 2][nk + 1] == 0)) {
 
                     ni = ni + 2;
@@ -72,7 +72,7 @@ public class HomeWork55 {
                     turn = true;
                 }
             }
-            if ((ni + 2 > 0) && (nk - 1 > 0) && (ni + 2 < i) && (nk - 1 < k)) {
+            if ((ni + 2 >= 0) && (nk - 1 >= 0) && (ni + 2 < i) && (nk - 1 < k)) {
                 if ((xp2m1.getNumOfHits() == k) && (turn == false) && (m[ni + 2][nk - 1] == 0)) {
 
                     ni = ni + 2;
@@ -81,7 +81,7 @@ public class HomeWork55 {
                     turn = true;
                 }
             }
-            if ((ni - 2 > 0) && (nk + 1 > 0) && (ni - 2 < i) && (nk + 1 < k)) {
+            if ((ni - 2 >= 0) && (nk + 1 >= 0) && (ni - 2 < i) && (nk + 1 < k)) {
                 if ((xm2p1.getNumOfHits() == k) && (turn == false) && (m[ni - 2][nk + 1] == 0)) {
 
                     ni = ni - 2;
@@ -90,7 +90,7 @@ public class HomeWork55 {
                     turn = true;
                 }
             }
-            if ((ni - 2 > 0) && (nk - 1 > 0) && (ni - 2 < i) && (nk - 1 < k)) {
+            if ((ni - 2 >= 0) && (nk - 1 >= 0) && (ni - 2 < i) && (nk - 1 < k)) {
                 if ((xm2m1.getNumOfHits() == k) && (turn == false) && (m[ni - 2][nk - 1] == 0)) {
 
                     ni = ni - 2;
@@ -99,7 +99,7 @@ public class HomeWork55 {
                     turn = true;
                 }
             }
-            if ((ni + 1 > 0) && (nk + 2 > 0) && (ni + 1 < i) && (nk + 2 < k)) {
+            if ((ni + 1 >= 0) && (nk + 2 >= 0) && (ni + 1 < i) && (nk + 2 < k)) {
                 if ((xp1p2.getNumOfHits() == k) && (turn == false) && (m[ni + 1][nk + 2] == 0)) {
 
                     ni = ni + 1;
@@ -108,7 +108,7 @@ public class HomeWork55 {
                     turn = true;
                 }
             }
-            if ((ni + 1 > 0) && (nk - 2 > 0) && (ni + 1 < i) && (nk - 2 < k)) {
+            if ((ni + 1 >= 0) && (nk - 2 >= 0) && (ni + 1 < i) && (nk - 2 < k)) {
                 if ((xp1m2.getNumOfHits() == k) && (turn == false) && (m[ni + 1][nk - 2] == 0)) {
 
                     ni = ni + 1;
@@ -117,7 +117,7 @@ public class HomeWork55 {
                     turn = true;
                 }
             }
-            if ((ni - 1 > 0) && (nk + 2 > 0) && (ni - 1 < i) && (nk + 2 < k)) {
+            if ((ni - 1 >= 0) && (nk + 2 >= 0) && (ni - 1 < i) && (nk + 2 < k)) {
                 if ((xm1p2.getNumOfHits() == k) && (turn == false) && (m[ni - 1][nk + 2] == 0)) {
 
                     ni = ni - 1;
@@ -126,7 +126,7 @@ public class HomeWork55 {
                     turn = true;
                 }
             }
-            if ((ni - 1 > 0) && (nk - 2 > 0) && (ni - 1 < i) && (nk - 2 < k)) {
+            if ((ni - 1 >= 0) && (nk - 2 >= 0) && (ni - 1 < i) && (nk - 2 < k)) {
                 if ((xm1m2.getNumOfHits() == k) && (turn == false) && (m[ni - 1][nk - 2] == 0)) {
 
                     ni = ni - 1;
