@@ -10,7 +10,7 @@ public class Num {
     public static final int i = 5;
     public static final int k = 5;
 
-    int m[][] = new int[i][k];
+    public static int m[][] = new int[i][k];
 
     public int getNumOfHits() {
         return numOfHits;
@@ -24,44 +24,54 @@ public class Num {
     }
 
     public void Method1() {
-        if ((ni + 3 < i) && (nk + 1 < k) && (m[ni + 3][nk + 1] == 0)) {
-            numOfHits++;
-        }
+        if ((ni < i) && (ni >= 0) && (nk < k) && (nk >= 0)) {
+            if ((ni + 2 < i) && (nk + 1 < k) && (ni + 2 >= 0) && (nk + 1 >= 0)) {
+                if ((m[ni + 2][nk + 1] == 0)) {
+                    numOfHits++;
+                }
+            }
 
-        if ((ni - 3 < i) && (nk + 1 < k) && (ni - 3 > 0) && (nk + 1 > 0)) {
-            if (m[ni - 3][nk + 1] == 0) {
-                numOfHits++;
+            if ((ni - 2 < i) && (nk + 1 < k) && (ni - 2 >= 0) && (nk + 1 >= 0)) {
+                if (m[ni - 2][nk + 1] == 0) {
+                    numOfHits++;
+                }
             }
-        }
-        if ((ni + 3 < i) && (nk - 1 < k) && (ni + 3 > 0) && (nk - 1 > 0)) {
-            if ((m[ni + 3][nk - 1] == 0)) {
-                numOfHits++;
+            if ((ni + 2 < i) && (nk - 1 < k) && (ni + 2 >= 0) && (nk - 1 >= 0)) {
+                if ((m[ni + 2][nk - 1] == 0)) {
+                    numOfHits++;
+                }
             }
-        }
-        if ((ni - 3 < i) && (nk - 1 < k) && (ni - 3 > 0) && (nk - 1 > 0)) {
-            if ((m[ni - 3][nk - 1] == 0)) {
-                numOfHits++;
+            if ((ni - 2 < i) && (nk - 1 < k) && (ni - 2 >= 0) && (nk - 1 >= 0)) {
+                if ((m[ni - 2][nk - 1] == 0)) {
+                    numOfHits++;
+                }
             }
-        }
-        if ((ni + 1 < i) && (nk + 3 < k) && (ni + 1 > 0) && (nk + 3 > 0)) {
-            if ((m[ni + 1][nk + 3] == 0)) {
-                numOfHits++;
+            if ((ni + 1 < i) && (nk + 2 < k) && (ni + 1 >= 0) && (nk + 2 >= 0)) {
+                if ((m[ni + 1][nk + 2] == 0)) {
+                    numOfHits++;
+                }
             }
-        }
-        if ((ni + 1 < i) && (nk - 3 < k) && (ni + 1 > 0) && (nk - 3 > 0)) {
-            if ((m[ni + 1][nk - 3] == 0)) {
-                numOfHits++;
+            if ((ni + 1 < i) && (nk - 2 < k) && (ni + 1 >= 0) && (nk - 2 >= 0)) {
+                if ((m[ni + 1][nk - 2] == 0)) {
+                    numOfHits++;
+                }
             }
-        }
-        if ((ni - 1 < i) && (nk - 3 < k) && (ni - 1 > 0) && (nk - 3 > 0)) {
-            if ((m[ni - 1][nk - 3] == 0)) {
-                numOfHits++;
+            if ((ni - 1 < i) && (nk - 2 < k) && (ni - 1 >= 0) && (nk - 2 >= 0)) {
+                if ((m[ni - 1][nk - 2] == 0)) {
+                    numOfHits++;
+                }
             }
-        }
-        if ((ni - 1 < i) && (nk + 3 < k) && (ni - 1 > 0) && (nk + 3 > 0)) {
-            if ((m[ni - 1][nk + 3] == 0)) {
-                numOfHits++;
+            if ((ni - 1 < i) && (nk + 2 < k) && (ni - 1 >= 0) && (nk + 2 >= 0)) {
+                if ((m[ni - 1][nk + 2] == 0)) {
+                    numOfHits++;
+                }
+                            
+                
+
             }
+
+        } else {
+            numOfHits = 99;
         }
     }
 }
