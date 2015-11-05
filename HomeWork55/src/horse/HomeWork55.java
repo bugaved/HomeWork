@@ -22,7 +22,7 @@ public class HomeWork55 {
             Num xp1p2 = new Num(ni + 1, nk + 2);
             Num xp1m2 = new Num(ni + 1, nk - 2);
             Num xm1p2 = new Num(ni - 1, nk + 2);
-            Num xm1m2 = new Num(ni - 1, nk + 2);
+            Num xm1m2 = new Num(ni - 1, nk - 2);
             if ((ni + 2 >= 0) && (nk + 1 >= 0) && (ni + 2 < i) && (nk + 1 < k)) {
                 if ((xp2p1.getNumOfHits() < k) && (m[ni + 2][nk + 1] == 0)) {
                     k = xp2p1.getNumOfHits();
