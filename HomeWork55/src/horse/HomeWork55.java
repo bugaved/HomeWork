@@ -10,10 +10,11 @@ public class HomeWork55 {
     public static void main(String[] args) {
         int ni = 0;
         int nj = 0;
-
+        int number = 0;
         for (int x = 0; x < i * j; x++) {
+            number++;
+            m[ni][nj] = number;
             int k = 12;
-            m[ni][nj] = 1;
             boolean turn = false;
             Num xp2p1 = new Num(ni + 2, nj + 1);
             Num xp2m1 = new Num(ni + 2, nj - 1);
@@ -137,6 +138,13 @@ public class HomeWork55 {
                 }
             }
 
+        }
+        for (ni = 0; ni < i; ni++) {
+            for (nj = 0; nj < j; nj++) {
+                String f = String.format("%02d", m[nj][ni]);
+                System.out.print(f + " ");
+            }
+            System.out.println("");
         }
     }
 
