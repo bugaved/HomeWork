@@ -3,7 +3,7 @@ package com.sportshop.entity;
 public class SportProduct {
 
     private String productName;
-    private String price;
+    private int price;
     private String description;
     private long productID;
 
@@ -15,11 +15,11 @@ public class SportProduct {
         this.productName = productName;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
