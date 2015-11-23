@@ -7,6 +7,7 @@ import java.util.List;
 import com.sportshop.entity.SportClient;
 import com.sportshop.exception.SportShopBusinessException;
 import com.sportshop.exception.SportShopDAOException;
+import com.sportshop.filter.SportClientFilter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,9 +39,9 @@ public class ClientManager {
         }
     }
 
-    public List<SportClient> findClients() throws SportShopBusinessException {
+    public List<SportClient> findClients(SportClientFilter filter) throws SportShopBusinessException {
         try {
-            return dao.findClients();
+            return dao.findClients(filter);
         } catch (SportShopDAOException ex) {
            throw new SportShopBusinessException(ex);
         }

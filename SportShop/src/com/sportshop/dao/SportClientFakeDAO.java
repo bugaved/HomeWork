@@ -2,6 +2,7 @@ package com.sportshop.dao;
 
 import com.sportshop.entity.SportClient;
 import com.sportshop.exception.SportShopDAOException;
+import com.sportshop.filter.SportClientFilter;
 import java.util.List;
 
 public class SportClientFakeDAO implements SportClientDAO {
@@ -35,7 +36,7 @@ public class SportClientFakeDAO implements SportClientDAO {
     }
 
     @Override
-    public List<SportClient> findClients() throws SportShopDAOException {
+    public List<SportClient> findClients(SportClientFilter filter) throws SportShopDAOException {
         try {
             System.out.println("find Clients");
         } catch (Exception ex) {

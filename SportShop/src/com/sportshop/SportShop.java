@@ -2,6 +2,7 @@ package com.sportshop;
 
 import com.sportshop.entity.SportProduct;
 import com.sportshop.exception.SportShopBusinessException;
+import com.sportshop.filter.SportProductFilter;
 import com.sportshop.logic.Facade;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,7 +21,7 @@ public class SportShop {
      long productID = fas.addSportProduct(sp);
      sp.setProductID(productID);
      fas.updateSportProduct(sp);
-     fas.findProducts();
+     fas.findProducts(null);
      fas.deleteSportProduct(productID);
          
     }

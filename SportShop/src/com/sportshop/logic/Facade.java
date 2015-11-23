@@ -5,6 +5,8 @@ import com.sportshop.entity.SportClient;
 import com.sportshop.entity.SportProduct;
 import com.sportshop.entity.SportReview;
 import com.sportshop.exception.SportShopBusinessException;
+import com.sportshop.filter.SportClientFilter;
+import com.sportshop.filter.SportProductFilter;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,9 +49,9 @@ public class Facade {
         }
     }
 
-    public List<SportProduct> findProducts() throws SportShopBusinessException {
+    public List<SportProduct> findProducts(SportProductFilter filter) throws SportShopBusinessException {
         try {
-            return productMan.findProducts();
+            return productMan.findProducts(filter);
         } catch (SportShopBusinessException ex) {
             throw new SportShopBusinessException(ex);
         }
@@ -79,9 +81,9 @@ public class Facade {
         }
     }
 
-    public List<SportClient> findClients() throws SportShopBusinessException {
+    public List<SportClient> findClients(SportClientFilter filter) throws SportShopBusinessException {
         try {
-            return clientMan.findClients();
+            return clientMan.findClients(filter);
         } catch (SportShopBusinessException ex) {
             throw new SportShopBusinessException(ex);
         }

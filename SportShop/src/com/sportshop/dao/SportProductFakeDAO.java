@@ -2,6 +2,7 @@ package com.sportshop.dao;
 
 import com.sportshop.entity.SportProduct;
 import com.sportshop.exception.SportShopDAOException;
+import com.sportshop.filter.SportProductFilter;
 import java.util.List;
 
 public class SportProductFakeDAO implements SportProductDAO {
@@ -35,7 +36,7 @@ public class SportProductFakeDAO implements SportProductDAO {
     }
 
     @Override
-    public List<SportProduct> findSportProducts() throws SportShopDAOException {
+    public List<SportProduct> findSportProducts(SportProductFilter filter) throws SportShopDAOException {
         try {
             System.out.println("find products");
         } catch (Exception ex) {
