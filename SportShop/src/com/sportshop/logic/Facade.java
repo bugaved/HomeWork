@@ -49,6 +49,14 @@ public class Facade {
         }
     }
 
+    public SportProduct getSportProduct(long productID) throws SportShopBusinessException {
+        try {
+            return productMan.getSportProduct(productID);
+        } catch (SportShopBusinessException ex) {
+            throw new SportShopBusinessException(ex);
+        }
+    }
+
     public List<SportProduct> findProducts(SportProductFilter filter) throws SportShopBusinessException {
         try {
             return productMan.findProducts(filter);

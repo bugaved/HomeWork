@@ -46,4 +46,14 @@ public class ProductManager {
             throw new SportShopBusinessException(ex);
         }
     }
+
+    public SportProduct getSportProduct(long productID) throws SportShopBusinessException {
+        try {
+            return dao.getSportProduct(productID);
+        } catch (SportShopDAOException ex) {
+            throw new SportShopBusinessException(ex);
+
+        }
+
+    }
 }

@@ -5,24 +5,38 @@ import com.sportshop.exception.SportShopBusinessException;
 import com.sportshop.filter.SportProductFilter;
 import com.sportshop.logic.Facade;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class SportShop {
 
     public static void main(String[] args) throws SportShopBusinessException {
-     Facade fas = new Facade();
+     Facade facade = new Facade();
      
      SportProduct sp= new SportProduct();
      sp.setProductName("Protein");
      sp.setPrice(100);
      sp.setDescription("Casein Protein");
-     sp.setProductID(99);
-     
-     long productID = fas.addSportProduct(sp);
-     sp.setProductID(productID);
-     fas.updateSportProduct(sp);
-     fas.findProducts(null);
-     fas.deleteSportProduct(productID);
+       
+     long productID = facade.addSportProduct(sp);
+    List<SportProduct> lsp =  facade.findProducts(null);
+    if (lsp.isEmpty()) {
+        System.out.println("Error - empty List");
+    }
+     SportProduct productTmp = facade.getSportProduct(productID);
+     if (productTmp == null) {
+         System.out.println("Error - GET is not working");    
+     }
+     productTmp.setProductName("CHECK");     
+     facade.updateSportProduct(productTmp);
+     if(productTmp == null || !productTmp.getProductName().equals("CHECK")) {
+         System.out.println("Error - update is not working");
+     }
+     facade.findProducts(null);
+     facade.deleteSportProduct(productID);
+     if(!lsp.isEmpty()) {
+         System.out.println("error - DELETE is not working");
+     }
          
     }
 
