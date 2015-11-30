@@ -1,16 +1,24 @@
 package com.sportshop.dao;
 
+import com.sportshop.config.SportShopSettings;
 import com.sportshop.logic.DAOAnnotation;
 
-@DAOAnnotation(daoName = "com.sportshop.dao.SportProductFakeDAO")
+@DAOAnnotation(daoName = "com.sportshop.dao.SportProductFileSerialDAO")
 public class SportProductDAOFactory {
 
     public static SportProductDAO getSportProductDAO() {
         SportProductDAO dao = null;
-        DAOAnnotation daoAn = SportProductDAOFactory.class.getAnnotation(DAOAnnotation.class);
-        if (daoAn != null) {
-            String className = daoAn.daoName();
 
+        String className = SportShopSettings.getDaoClassName();
+        if (className == null) {
+            DAOAnnotation daoAn = SportProductDAOFactory.class.getAnnotation(DAOAnnotation.class);
+            if (daoAn != null) {
+                className = daoAn.daoName();
+                System.out.println("DAO from annotation");
+            }
+        }
+        if (className != null) {
+            System.out.println("DAO from reflection");
             try {
                 Class cd = Class.forName(className);
                 dao = (SportProductDAO) cd.newInstance();
@@ -20,7 +28,7 @@ public class SportProductDAOFactory {
         } else {
             dao = new SportProductFakeDAO();
         }
-        return dao;
 
+        return dao;
     }
 }

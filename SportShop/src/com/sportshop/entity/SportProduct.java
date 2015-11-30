@@ -1,6 +1,8 @@
 package com.sportshop.entity;
 
-public class SportProduct {
+import java.io.Serializable;
+
+public class SportProduct implements Serializable {
 
     private String productName;
     private int price;
@@ -37,6 +39,17 @@ public class SportProduct {
 
     public void setProductID(long priductID) {
         this.productID = priductID;
+    }
+
+    @Override
+    public Object clone(){
+       SportProduct sp = new SportProduct();
+       sp.setDescription(description);
+       sp.setPrice(price);
+       sp.setProductID(productID);
+       sp.setProductName(productName);
+        return sp;
+        
     }
 
 }

@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class SportProductFakeDAO implements SportProductDAO {
+abstract public class SportProductFileDAO implements SportProductDAO {
 
-    private List<SportProduct> products = new ArrayList<>();
+    protected List<SportProduct> products;
 
     @Override
     public long addSportProduct(SportProduct product) throws SportShopDAOException {
@@ -19,6 +19,7 @@ public class SportProductFakeDAO implements SportProductDAO {
             SportProduct sp = (SportProduct) product.clone();
             System.out.println("addSportProduct");
             products.add(sp);
+            saveCollection();
         } catch (Exception ex) {
             throw new SportShopDAOException(ex);
         }
@@ -33,6 +34,7 @@ public class SportProductFakeDAO implements SportProductDAO {
         result.setPrice(product.getPrice());
         result.setDescription(product.getDescription());
         System.out.println("updateSportProduct");
+        saveCollection();
     }
 
     @Override
@@ -44,12 +46,18 @@ public class SportProductFakeDAO implements SportProductDAO {
                 break;
             }
         }
+        saveCollection();
         System.out.println("deleteSportProduct: " + productID);
     }
 
     @Override
     public SportProduct getSportProduct(long productID) throws SportShopDAOException {
+
+        if (products == null) {
+            loadCollection();
+        }
         SportProduct result = null;
+
         SportProduct tmp = getProductInternal(productID);
         if (tmp != null) {
             result = (SportProduct) tmp.clone();
@@ -60,7 +68,13 @@ public class SportProductFakeDAO implements SportProductDAO {
 
     @Override
     public List<SportProduct> findSportProducts(SportProductFilter filter) throws SportShopDAOException {
-
+        if (products == null) {
+            loadCollection();
+        }
+        List<SportProduct> result = new ArrayList<SportProduct>();
+        for (SportProduct sp : products) {
+            result.add((SportProduct) sp.clone());
+        }
         System.out.println("find products");
         return products;
 
@@ -94,4 +108,8 @@ public class SportProductFakeDAO implements SportProductDAO {
         }
         return productID;
     }
+
+    abstract protected void saveCollection() throws SportShopDAOException;
+
+    abstract protected void loadCollection() throws SportShopDAOException;
 }

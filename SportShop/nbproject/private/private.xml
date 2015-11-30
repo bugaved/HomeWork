@@ -3,35 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/dao/SportReviewDAO.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/entity/SportCart.java</file>
             <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/logic/ProductManager.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/dao/SportClientFakeDAO.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/dao/SportCartFakeDAO.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/dao/SportProductDAO.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/dao/SportClientDAOFactory.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/dao/SportReviewFakeDAO.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/nbproject/build-impl.xml</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/exception/SportShopDAOException.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/SportShop.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/dao/SportClientDAO.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/entity/SportClient.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/dao/SportProductFakeDAO.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/dao/SportCartDAO.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/dao/SportProductDAOFactory.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/entity/SportReview.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/exception/SportShopException.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/filter/SportClientFilter.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/dao/SportReviewDAOFactory.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/dao/SportCartDAOFactory.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/logic/Facade.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/logic/CartManager.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/logic/ClientManager.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/logic/DAOAnnotation.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/filter/SportProductFilter.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/exception/SportShopBusinessException.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/logic/ReviewManager.java</file>
-            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/entity/SportProduct.java</file>
+            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/config/SportShopSettings.java</file>
+            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/dao/SportProductFileCommaDAO.java</file>
+            <file>file:/C:/documents/NetBeansProjects/SportShop/src/com/sportshop/dao/SportProductFileDAO.java</file>
         </group>
     </open-files>
 </project-private>
