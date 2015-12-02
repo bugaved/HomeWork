@@ -18,25 +18,27 @@ public class Car extends JFrame {
     }
 
     public void moveFrame(MovingFrame frame) {
-        mf = frame;
+
         Rectangle r = getBounds();
 
-        if (mf.isDirectionRIGHT()) {
+        if (frame.isDirectionRIGHT()) {
             r.x += STEP;
             System.out.println("двигаемся");
         }
-        if (mf.isDirectionLEFT()) {
+        if (frame.isDirectionLEFT()) {
             r.x -= STEP;
             System.out.println("двигаемся");
         }
-        if (mf.isDirectionDOWN()) {
+        if (frame.isDirectionDOWN()) {
+
             r.y += STEP;
             System.out.println("двигаемся");
         }
-        if (mf.isDirectionUP()) {
+        if (frame.isDirectionUP()) {
             r.y -= STEP;
             System.out.println("двигаемся");
         }
         setBounds(r);
     }
+
 }
