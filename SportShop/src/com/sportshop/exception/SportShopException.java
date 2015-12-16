@@ -1,6 +1,7 @@
 package com.sportshop.exception;
 
-public class SportShopException extends Exception {
+public class SportShopException extends Exception
+{
 
     public SportShopException() {
     }

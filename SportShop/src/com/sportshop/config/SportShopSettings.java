@@ -1,12 +1,12 @@
-
 package com.sportshop.config;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
-public class SportShopSettings {
-    private static final String FILE_NAME = "sportshop.properties";
+public class SportShopSettings
+{
+    private static final String FILE_NAME = "sportShop.properties";
 
     public static final String DAO_CLASS_NAME = "dao.class.name";
     public static final String FILE_NAME_COMMA = "dao.file.comma";
@@ -27,5 +27,5 @@ public class SportShopSettings {
     
     public static String getDaoClassName() {
         return getProperty(DAO_CLASS_NAME);
-    }    
+    }
 }

@@ -1,18 +1,19 @@
 package com.sportshop.entity;
 
-public class SportCart {
-
-    private SportClient Client;
+public class SportCart
+{
+    private long CartId;
     private SportProduct product;
+    private SportClient client;
     private int total;
     private String CheckList;
 
-    public SportClient getClient() {
-        return Client;
+    public long getCartId() {
+        return CartId;
     }
 
-    public void setClient(SportClient Client) {
-        this.Client = Client;
+    public void setCartId(long CartId) {
+        this.CartId = CartId;
     }
 
     public SportProduct getProduct() {
@@ -21,6 +22,14 @@ public class SportCart {
 
     public void setProduct(SportProduct product) {
         this.product = product;
+    }
+
+    public SportClient getClient() {
+        return client;
+    }
+
+    public void setClient(SportClient client) {
+        this.client = client;
     }
 
     public int getTotal() {
@@ -38,5 +47,4 @@ public class SportCart {
     public void setCheckList(String CheckList) {
         this.CheckList = CheckList;
     }
-
 }

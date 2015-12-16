@@ -7,91 +7,85 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class SportProductFakeDAO implements SportProductDAO {
-
-    private List<SportProduct> products = new ArrayList<>();
+public class SportProductFakeDAO implements SportProductDAO
+{
+    private List<SportProduct> users = new ArrayList<SportProduct>();
 
     @Override
-    public long addSportProduct(SportProduct product) throws SportShopDAOException {
-        long productID = generateProductID();
+    public long addSportProduct(SportProduct user) throws SportShopDAOException {
+        long userId = generateProductId();
         try {
-            product.setProductID(productID);
-            SportProduct sp = (SportProduct) product.clone();
-            System.out.println("addSportProduct");
-            products.add(sp);
+            user.setProductId(userId);
+            SportProduct lu = (SportProduct)user.clone();
+            users.add(lu);
         } catch (Exception ex) {
             throw new SportShopDAOException(ex);
         }
-        return productID;
+        return userId;
     }
 
     @Override
-    public void updateSportProduct(SportProduct product) throws SportShopDAOException {
-
-        SportProduct result = getProductInternal(product.getProductID());
-        result.setProductName(product.getProductName());
-        result.setPrice(product.getPrice());
-        result.setDescription(product.getDescription());
-        System.out.println("updateSportProduct");
+    public void updateSportProduct(SportProduct user) throws SportShopDAOException {
+        SportProduct result = getUserInternal(user.getProductId());
+        result.setProductName(user.getProductName());
+        result.setProductDescription(user.getProductDescription());
+        result.setProductPrice(user.getProductPrice());
     }
 
     @Override
-    public void deleteSportProduct(long productID) throws SportShopDAOException {
-        for (Iterator<SportProduct> it = products.iterator(); it.hasNext();) {
-            SportProduct sp = it.next();
-            if (sp.getProductID() == productID) {
+    public void deleteSportProduct(long userId) throws SportShopDAOException {
+        for(Iterator<SportProduct> it = users.iterator(); it.hasNext();) {
+            SportProduct lu = it.next();
+            if(lu.getProductId() == userId) {
                 it.remove();
                 break;
             }
         }
-        System.out.println("deleteSportProduct: " + productID);
     }
 
     @Override
-    public SportProduct getSportProduct(long productID) throws SportShopDAOException {
+    public SportProduct getSportProduct(long userId) throws SportShopDAOException {
         SportProduct result = null;
-        SportProduct tmp = getProductInternal(productID);
-        if (tmp != null) {
+        SportProduct tmp = getUserInternal(userId);
+        if(tmp != null) {
             result = (SportProduct) tmp.clone();
         }
-        System.out.println("get Sport Product");
         return result;
     }
 
     @Override
     public List<SportProduct> findSportProducts(SportProductFilter filter) throws SportShopDAOException {
-
-        System.out.println("find products");
-        return products;
-
-    }
-
-    private SportProduct getProductInternal(long productID) {
-        SportProduct result = null;
-
-        for (SportProduct sp : products) {
-            if (sp.getProductID() == productID) {
-                result = sp;
-                break;
-            }
+        List<SportProduct> result = new ArrayList<SportProduct>();
+        for(SportProduct lu : users) {
+            result.add((SportProduct) lu.clone());
         }
-        System.out.println("getSportProduct");
         return result;
     }
 
-    private long generateProductID() {
-        long productID = Math.round(Math.random() * 1000000);
+    private SportProduct getUserInternal(long userId) {
+        SportProduct result = null;
+        for(SportProduct lu : users) {
+            if(lu.getProductId() == userId) {
+                result = lu;
+                break;
+            }
+        }
+        return result;
+    }
+    
+    private long generateProductId() {
+        long productId = Math.round(Math.random() * 1000000);
         boolean found = true;
         while (found) {
             found = false;
-            for (SportProduct sp : products) {
-                if (sp.getProductID() == productID) {
+            for (SportProduct sp : users) {
+                if (sp.getProductId() == productId) {
                     found = true;
                     break;
                 }
             }
-            productID = Math.round(Math.random() * 1000000);
+            productId = Math.round(Math.random() * 1000000);
         }
-        return productID;
+        return productId;
     }
 }

@@ -6,110 +6,109 @@ import com.sportshop.filter.SportProductFilter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 
-abstract public class SportProductFileDAO implements SportProductDAO {
-
+abstract public class SportProductFileDAO implements SportProductDAO
+{
     protected List<SportProduct> products;
 
     @Override
-    public long addSportProduct(SportProduct product) throws SportShopDAOException {
-        long productID = generateProductID();
+    public long addSportProduct(SportProduct user) throws SportShopDAOException {
+        if(products == null) {
+            loadCollection();
+        }
+        long userId = generateUserId();
         try {
-            product.setProductID(productID);
-            SportProduct sp = (SportProduct) product.clone();
-            System.out.println("addSportProduct");
+            user.setProductId(userId);
+            SportProduct sp = (SportProduct)user.clone();
             products.add(sp);
             saveCollection();
         } catch (Exception ex) {
             throw new SportShopDAOException(ex);
         }
-        return productID;
+        return userId;
     }
 
     @Override
     public void updateSportProduct(SportProduct product) throws SportShopDAOException {
-
-        SportProduct result = getProductInternal(product.getProductID());
+        if(products == null) {
+            loadCollection();
+        }
+        SportProduct result = getUserInternal(product.getProductId());
         result.setProductName(product.getProductName());
-        result.setPrice(product.getPrice());
-        result.setDescription(product.getDescription());
-        System.out.println("updateSportProduct");
+        result.setProductDescription(product.getProductDescription());
+        result.setProductPrice(product.getProductPrice());
         saveCollection();
     }
 
     @Override
-    public void deleteSportProduct(long productID) throws SportShopDAOException {
-        for (Iterator<SportProduct> it = products.iterator(); it.hasNext();) {
+    public void deleteSportProduct(long userId) throws SportShopDAOException {
+        if(products == null) {
+            loadCollection();
+        }
+        for(Iterator<SportProduct> it = products.iterator(); it.hasNext();) {
             SportProduct sp = it.next();
-            if (sp.getProductID() == productID) {
+            if(sp.getProductId() == userId) {
                 it.remove();
                 break;
             }
         }
         saveCollection();
-        System.out.println("deleteSportProduct: " + productID);
     }
 
     @Override
-    public SportProduct getSportProduct(long productID) throws SportShopDAOException {
-
-        if (products == null) {
+    public SportProduct getSportProduct(long userId) throws SportShopDAOException {
+        if(products == null) {
             loadCollection();
         }
         SportProduct result = null;
-
-        SportProduct tmp = getProductInternal(productID);
-        if (tmp != null) {
+        SportProduct tmp = getUserInternal(userId);
+        if(tmp != null) {
             result = (SportProduct) tmp.clone();
         }
-        System.out.println("get Sport Product");
         return result;
     }
 
     @Override
     public List<SportProduct> findSportProducts(SportProductFilter filter) throws SportShopDAOException {
-        if (products == null) {
+        if(products == null) {
             loadCollection();
         }
         List<SportProduct> result = new ArrayList<SportProduct>();
-        for (SportProduct sp : products) {
+        for(SportProduct sp : products) {
             result.add((SportProduct) sp.clone());
         }
-        System.out.println("find products");
-        return products;
-
+        return result;
     }
 
-    private SportProduct getProductInternal(long productID) {
+    private SportProduct getUserInternal(long productId) {
         SportProduct result = null;
-
-        for (SportProduct sp : products) {
-            if (sp.getProductID() == productID) {
+        for(SportProduct sp : products) {
+            if(sp.getProductId() == productId) {
                 result = sp;
                 break;
             }
         }
-        System.out.println("getSportProduct");
         return result;
     }
-
-    private long generateProductID() {
-        long productID = Math.round(Math.random() * 1000000);
+    
+    private long generateUserId() {
+        long productId = Math.round(Math.random() * 1000000);
         boolean found = true;
         while (found) {
             found = false;
             for (SportProduct sp : products) {
-                if (sp.getProductID() == productID) {
+                if (sp.getProductId() == productId) {
                     found = true;
                     break;
                 }
             }
-            productID = Math.round(Math.random() * 1000000);
+            productId = Math.round(Math.random() * 1000000);
         }
-        return productID;
+        return productId;
     }
-
+    
     abstract protected void saveCollection() throws SportShopDAOException;
-
+    
     abstract protected void loadCollection() throws SportShopDAOException;
 }

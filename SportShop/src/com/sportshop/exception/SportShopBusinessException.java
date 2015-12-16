@@ -1,7 +1,7 @@
-
 package com.sportshop.exception;
 
-public class SportShopBusinessException extends SportShopException {
+public class SportShopBusinessException extends SportShopException
+{
 
     public SportShopBusinessException() {
     }
@@ -21,5 +21,5 @@ public class SportShopBusinessException extends SportShopException {
     public SportShopBusinessException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
-    
+
 }

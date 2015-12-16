@@ -2,12 +2,20 @@ package com.sportshop.entity;
 
 import java.io.Serializable;
 
-public class SportProduct implements Serializable {
-
+public class SportProduct implements Serializable
+{
+    private long productId;
     private String productName;
-    private int price;
-    private String description;
-    private long productID;
+    private int productPrice;
+    private String productDescription;
+
+    public long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(long userId) {
+        this.productId = userId;
+    }
 
     public String getProductName() {
         return productName;
@@ -17,39 +25,54 @@ public class SportProduct implements Serializable {
         this.productName = productName;
     }
 
-    public int getPrice() {
-        return price;
+    public int getProductPrice() {
+        return productPrice;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setProductPrice(int password) {
+        this.productPrice = password;
     }
 
-    public String getDescription() {
-        return description;
+    public String getProductDescription() {
+        return productDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public long getProductID() {
-        return productID;
-    }
-
-    public void setProductID(long priductID) {
-        this.productID = priductID;
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
     }
 
     @Override
-    public Object clone(){
-       SportProduct sp = new SportProduct();
-       sp.setDescription(description);
-       sp.setPrice(price);
-       sp.setProductID(productID);
-       sp.setProductName(productName);
-        return sp;
-        
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + (int) (this.productId ^ (this.productId >>> 32));
+        return hash;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final SportProduct other = (SportProduct) obj;
+        if (this.productId != other.productId) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public Object clone() {
+        SportProduct sp = new SportProduct();
+        sp.setProductName(productName);
+        sp.setProductDescription(productDescription);
+        sp.setProductPrice(productPrice);
+        sp.setProductId(productId);
+        return sp;
+    }
+
+    
+    
 }

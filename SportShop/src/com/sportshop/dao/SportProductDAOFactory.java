@@ -1,17 +1,18 @@
 package com.sportshop.dao;
 
 import com.sportshop.config.SportShopSettings;
-import com.sportshop.logic.DAOAnnotation;
+import com.sportshop.logic.DaoAnnotation;
 
-@DAOAnnotation(daoName = "com.sportshop.dao.SportProductFileSerialDAO")
-public class SportProductDAOFactory {
 
+@DaoAnnotation("daoName = com.sportshop.dao.SportProductFileSerialDAO")
+public class SportProductDAOFactory
+{
     public static SportProductDAO getSportProductDAO() {
         SportProductDAO dao = null;
 
         String className = SportShopSettings.getDaoClassName();
         if (className == null) {
-            DAOAnnotation daoAn = SportProductDAOFactory.class.getAnnotation(DAOAnnotation.class);
+            DaoAnnotation daoAn = SportProductDAOFactory.class.getAnnotation(DaoAnnotation.class);
             if (daoAn != null) {
                 className = daoAn.daoName();
                 System.out.println("DAO from annotation");

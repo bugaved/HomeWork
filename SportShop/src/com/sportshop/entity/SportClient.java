@@ -1,19 +1,30 @@
 package com.sportshop.entity;
 
+import java.util.Date;
+
 public class SportClient {
 
+    private long clientId;
+    private SportProduct sportProduct;
     private String clientName;
-    private String email;
-    private String password;
+    private String clientEmail;
+    private String clientPassword;
     private int phoneNumber;
-    private long clientID;
 
-    public long getClientID() {
-        return clientID;
+    public long getClientId() {
+        return clientId;
     }
 
-    public void setClientID(long clientID) {
-        this.clientID = clientID;
+    public void setClientId(long clientId) {
+        this.clientId = clientId;
+    }
+
+    public SportProduct getSportProduct() {
+        return sportProduct;
+    }
+
+    public void setSportProduct(SportProduct sportProduct) {
+        this.sportProduct = sportProduct;
     }
 
     public String getClientName() {
@@ -24,20 +35,20 @@ public class SportClient {
         this.clientName = clientName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getClientEmail() {
+        return clientEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setClientEmail(String clientEmail) {
+        this.clientEmail = clientEmail;
     }
 
-    public String getPassword() {
-        return password;
+    public String getClientPassword() {
+        return clientPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setClientPassword(String clientPassword) {
+        this.clientPassword = clientPassword;
     }
 
     public int getPhoneNumber() {

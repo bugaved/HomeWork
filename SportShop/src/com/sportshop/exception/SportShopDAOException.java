@@ -1,7 +1,7 @@
-
 package com.sportshop.exception;
 
-public class SportShopDAOException extends SportShopException {
+public class SportShopDAOException extends SportShopException
+{
 
     public SportShopDAOException() {
     }
@@ -21,5 +21,5 @@ public class SportShopDAOException extends SportShopException {
     public SportShopDAOException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
-    
+
 }

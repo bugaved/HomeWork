@@ -1,42 +1,53 @@
-
 package com.sportshop.filter;
 
-public class SportProductFilter {
+import java.util.Date;
+
+public class SportProductFilter
+{
     private String productName;
-    private int minPrice;
-    private int maxPrice;
-    private String productType;
+    private Date from;
+    private Date to;
+    private int page;
+    private int pageSize;
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
 
     public String getProductName() {
         return productName;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setProductName(String userName) {
+        this.productName = userName;
     }
 
-    public int getMinPrice() {
-        return minPrice;
+    public Date getFrom() {
+        return from;
     }
 
-    public void setMinPrice(int minPrice) {
-        this.minPrice = minPrice;
+    public void setFrom(Date from) {
+        this.from = from;
     }
 
-    public int getMaxPrice() {
-        return maxPrice;
+    public Date getTo() {
+        return to;
     }
 
-    public void setMaxPrice(int maxPrice) {
-        this.maxPrice = maxPrice;
+    public void setTo(Date to) {
+        this.to = to;
     }
 
-    public String getProductType() {
-        return productType;
-    }
-
-    public void setProductType(String productType) {
-        this.productType = productType;
-    }
-    
 }

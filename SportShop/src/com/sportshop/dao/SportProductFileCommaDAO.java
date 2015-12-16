@@ -10,7 +10,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class SportProductFileCommaDAO extends SportProductFileDAO {
+public class SportProductFileCommaDAO extends SportProductFileDAO
+{
 
     @Override
     protected void saveCollection() throws SportShopDAOException {
@@ -18,8 +19,8 @@ public class SportProductFileCommaDAO extends SportProductFileDAO {
             FileWriter fw = new FileWriter(SportShopSettings.getProperty(SportShopSettings.FILE_NAME_COMMA));
             try {
                 BufferedWriter bw = new BufferedWriter(fw);
-                for (SportProduct sp : products) {
-                    bw.write(sp.getProductID() + "," + sp.getProductName() + "," + sp.getPrice() + "," + sp.getDescription()
+                for(SportProduct sp : products) {
+                    bw.write(sp.getProductId() +"," + sp.getProductName() +"," + sp.getProductPrice() + "," + sp.getProductDescription() 
                             + System.lineSeparator());
                 }
                 bw.close();
@@ -39,14 +40,14 @@ public class SportProductFileCommaDAO extends SportProductFileDAO {
             try {
                 BufferedReader br = new BufferedReader(fr);
                 String line = null;
-                while ((line = br.readLine()) != null) {
+                while((line = br.readLine()) != null) {
                     String[] params = line.split("\\s*,\\s*");
                     SportProduct sp = new SportProduct();
-                    sp.setProductID(Long.parseLong(params[0]));
+                    sp.setProductId(Long.parseLong(params[0]));
                     sp.setProductName(params[1]);
-                    Integer i1 = new Integer(params[2]);
-                    sp.setPrice(i1);
-                    sp.setDescription(params[3]);
+                    sp.setProductPrice(Integer.valueOf(params[2]));
+                    sp.setProductDescription(params[3]);
+                    
                     products.add(sp);
                 }
             } finally {
