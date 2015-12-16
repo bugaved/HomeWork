@@ -4,7 +4,7 @@ import com.sportshop.config.SportShopSettings;
 import com.sportshop.logic.DaoAnnotation;
 
 
-@DaoAnnotation("daoName = com.sportshop.dao.SportProductFileSerialDAO")
+@DaoAnnotation(daoName = "com.sportshop.dao.SportProductFileSerialDAO")
 public class SportProductDAOFactory
 {
     public static SportProductDAO getSportProductDAO() {

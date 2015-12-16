@@ -5,7 +5,7 @@ public class SportReview {
     private SportClient client;
     private String reviewBody;
     private short rating;
-    private long reciewID;
+    private long reviewID;
     private SportProduct product;
 
     public SportClient getClient() {
@@ -32,12 +32,12 @@ public class SportReview {
         this.rating = rating;
     }
 
-    public long getReciewID() {
-        return reciewID;
+    public long getReviewID() {
+        return reviewID;
     }
 
-    public void setReciewID(long reciewID) {
-        this.reciewID = reciewID;
+    public void setReviewID(long reciewID) {
+        this.reviewID = reciewID;
     }
 
     public SportProduct getProduct() {

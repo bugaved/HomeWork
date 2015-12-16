@@ -12,7 +12,7 @@ import java.util.List;
 
 public class SportProductFileSerialDAO extends SportProductFileDAO
 {
-    private static final String FILE_NAME = "users.bin";
+    private static final String FILE_NAME = "products.bin";
     
     @Override
     protected void saveCollection() throws SportShopDAOException {

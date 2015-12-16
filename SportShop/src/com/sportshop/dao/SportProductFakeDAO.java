@@ -9,34 +9,34 @@ import java.util.List;
 
 public class SportProductFakeDAO implements SportProductDAO
 {
-    private List<SportProduct> users = new ArrayList<SportProduct>();
+    private List<SportProduct> products = new ArrayList<SportProduct>();
 
     @Override
     public long addSportProduct(SportProduct user) throws SportShopDAOException {
-        long userId = generateProductId();
+        long productId = generateProductId();
         try {
-            user.setProductId(userId);
-            SportProduct lu = (SportProduct)user.clone();
-            users.add(lu);
+            user.setProductId(productId);
+            SportProduct sp = (SportProduct)user.clone();
+            products.add(sp);
         } catch (Exception ex) {
             throw new SportShopDAOException(ex);
         }
-        return userId;
+        return productId;
     }
 
     @Override
-    public void updateSportProduct(SportProduct user) throws SportShopDAOException {
-        SportProduct result = getUserInternal(user.getProductId());
-        result.setProductName(user.getProductName());
-        result.setProductDescription(user.getProductDescription());
-        result.setProductPrice(user.getProductPrice());
+    public void updateSportProduct(SportProduct product) throws SportShopDAOException {
+        SportProduct result = getProductInternal(product.getProductId());
+        result.setProductName(product.getProductName());
+        result.setProductDescription(product.getProductDescription());
+        result.setProductPrice(product.getProductPrice());
     }
 
     @Override
-    public void deleteSportProduct(long userId) throws SportShopDAOException {
-        for(Iterator<SportProduct> it = users.iterator(); it.hasNext();) {
-            SportProduct lu = it.next();
-            if(lu.getProductId() == userId) {
+    public void deleteSportProduct(long productId) throws SportShopDAOException {
+        for(Iterator<SportProduct> it = products.iterator(); it.hasNext();) {
+            SportProduct sp = it.next();
+            if(sp.getProductId() == productId) {
                 it.remove();
                 break;
             }
@@ -44,9 +44,9 @@ public class SportProductFakeDAO implements SportProductDAO
     }
 
     @Override
-    public SportProduct getSportProduct(long userId) throws SportShopDAOException {
+    public SportProduct getSportProduct(long productId) throws SportShopDAOException {
         SportProduct result = null;
-        SportProduct tmp = getUserInternal(userId);
+        SportProduct tmp = getProductInternal(productId);
         if(tmp != null) {
             result = (SportProduct) tmp.clone();
         }
@@ -56,17 +56,17 @@ public class SportProductFakeDAO implements SportProductDAO
     @Override
     public List<SportProduct> findSportProducts(SportProductFilter filter) throws SportShopDAOException {
         List<SportProduct> result = new ArrayList<SportProduct>();
-        for(SportProduct lu : users) {
-            result.add((SportProduct) lu.clone());
+        for(SportProduct sp : products) {
+            result.add((SportProduct) sp.clone());
         }
         return result;
     }
 
-    private SportProduct getUserInternal(long userId) {
+    private SportProduct getProductInternal(long productId) {
         SportProduct result = null;
-        for(SportProduct lu : users) {
-            if(lu.getProductId() == userId) {
-                result = lu;
+        for(SportProduct sp : products) {
+            if(sp.getProductId() == productId) {
+                result = sp;
                 break;
             }
         }
@@ -78,7 +78,7 @@ public class SportProductFakeDAO implements SportProductDAO
         boolean found = true;
         while (found) {
             found = false;
-            for (SportProduct sp : users) {
+            for (SportProduct sp : products) {
                 if (sp.getProductId() == productId) {
                     found = true;
                     break;

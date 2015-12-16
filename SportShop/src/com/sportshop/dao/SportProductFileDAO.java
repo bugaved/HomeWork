@@ -13,20 +13,20 @@ abstract public class SportProductFileDAO implements SportProductDAO
     protected List<SportProduct> products;
 
     @Override
-    public long addSportProduct(SportProduct user) throws SportShopDAOException {
+    public long addSportProduct(SportProduct product) throws SportShopDAOException {
         if(products == null) {
             loadCollection();
         }
-        long userId = generateUserId();
+        long productId = generateUserId();
         try {
-            user.setProductId(userId);
-            SportProduct sp = (SportProduct)user.clone();
+            product.setProductId(productId);
+            SportProduct sp = (SportProduct)product.clone();
             products.add(sp);
             saveCollection();
         } catch (Exception ex) {
             throw new SportShopDAOException(ex);
         }
-        return userId;
+        return productId;
     }
 
     @Override
@@ -34,7 +34,7 @@ abstract public class SportProductFileDAO implements SportProductDAO
         if(products == null) {
             loadCollection();
         }
-        SportProduct result = getUserInternal(product.getProductId());
+        SportProduct result = getProductInternal(product.getProductId());
         result.setProductName(product.getProductName());
         result.setProductDescription(product.getProductDescription());
         result.setProductPrice(product.getProductPrice());
@@ -62,7 +62,7 @@ abstract public class SportProductFileDAO implements SportProductDAO
             loadCollection();
         }
         SportProduct result = null;
-        SportProduct tmp = getUserInternal(userId);
+        SportProduct tmp = getProductInternal(userId);
         if(tmp != null) {
             result = (SportProduct) tmp.clone();
         }
@@ -81,7 +81,7 @@ abstract public class SportProductFileDAO implements SportProductDAO
         return result;
     }
 
-    private SportProduct getUserInternal(long productId) {
+    private SportProduct getProductInternal(long productId) {
         SportProduct result = null;
         for(SportProduct sp : products) {
             if(sp.getProductId() == productId) {

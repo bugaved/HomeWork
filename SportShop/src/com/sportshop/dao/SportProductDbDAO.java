@@ -45,15 +45,15 @@ public class SportProductDbDAO implements SportProductDAO {
     }
 
     @Override
-    public long addSportProduct(SportProduct user) throws SportShopDAOException {
+    public long addSportProduct(SportProduct product) throws SportShopDAOException {
         long productId = -1;
         try {
             Connection conn = getConnection();
             try {
                 PreparedStatement stmt = conn.prepareStatement(INSERT, new String[]{"product_id"});
-                stmt.setString(1, user.getProductName());
-                stmt.setString(2, user.getProductDescription());
-                stmt.setString(3, Integer.toString(user.getProductPrice()));
+                stmt.setString(1, product.getProductName());
+                stmt.setString(2, product.getProductDescription());
+                stmt.setString(3, Integer.toString(product.getProductPrice()));
                 stmt.executeUpdate();
                 ResultSet gk = stmt.getGeneratedKeys();
                 while (gk.next()) {
@@ -108,13 +108,13 @@ public class SportProductDbDAO implements SportProductDAO {
     }
 
     @Override
-    public SportProduct getSportProduct(long userId) throws SportShopDAOException {
+    public SportProduct getSportProduct(long productId) throws SportShopDAOException {
         SportProduct product = null;
         try {
             Connection conn = getConnection();
             try {
                 PreparedStatement stmt = conn.prepareStatement(SELECT_ONE);
-                stmt.setLong(1, userId);
+                stmt.setLong(1, productId);
                 ResultSet rs = stmt.executeQuery();
                 if (rs.next()) {
                     product = new SportProduct();
@@ -129,7 +129,7 @@ public class SportProductDbDAO implements SportProductDAO {
                 conn.close();
             }
             if (product == null) {
-                throw new SportShopDAOException("No product wiwth ID:" + userId);
+                throw new SportShopDAOException("No product wiwth ID:" + productId);
             }
         } catch (SQLException ex) {
             throw new SportShopDAOException(ex);
