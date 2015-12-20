@@ -20,24 +20,24 @@ public class SportShopFacade
         cartManager = new SportCartManager();
     }
     
-    public long addSportProduct(SportProduct user) {
+    public long addSportProduct(SportProduct product) {
         try {
-            return productManager.addSportProduct(user);
+            return productManager.addSportProduct(product);
         } catch (SportShopBusinessException ex) {
         }
         return 0;
     }
     
-    public void updateSportProduct(SportProduct user) {
-        productManager.updateSportProduct(user);
+    public void updateSportProduct(SportProduct product) {
+        productManager.updateSportProduct(product);
     }
 
-    public void deleteSportProduct(long userId) {
-        productManager.deleteSportProduct(userId);
+    public void deleteSportProduct(long productId) {
+        productManager.deleteSportProduct(productId);
     }
     
-    public SportProduct getSportProduct(long userId) {
-        return productManager.getSportProduct(userId);
+    public SportProduct getSportProduct(long productId) {
+        return productManager.getSportProduct(productId);
     }
     
     public List<SportProduct> findSportProducts(SportProductFilter filter) {

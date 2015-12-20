@@ -9,24 +9,25 @@ public class SportShop
     public static void main(String[] args) {
         SportShopFacade facade = new SportShopFacade();
         
-        SportProduct user = new SportProduct();
-        user.setProductName("productName");
-        user.setProductPrice(100);
-        user.setProductDescription("good product");
+        SportProduct product = new SportProduct();
+        product.setProductName("productName");
+        product.setProductPrice(100);
+        product.setProductDescription("good product");
         
-        long productId = facade.addSportProduct(user);
+        long productId = facade.addSportProduct(product);
         List<SportProduct> sp = facade.findSportProducts(null);
+        System.out.println(productId);
         if(sp.isEmpty()) {
             System.out.println("Error - list is empty");
         }
-        SportProduct userTmp = facade.getSportProduct(productId);
-        if(userTmp == null) {
+        SportProduct productTmp = facade.getSportProduct(productId);
+        if(productTmp == null) {
             System.out.println("Error - GET is not working");
         }
-        userTmp.setProductName("CHECK");
-        facade.updateSportProduct(userTmp);
-        userTmp = facade.getSportProduct(productId);
-        if(userTmp == null || !userTmp.getProductName().equals("CHECK")) {
+        productTmp.setProductName("CHECK");
+        facade.updateSportProduct(productTmp);
+        productTmp = facade.getSportProduct(productId);
+        if(productTmp == null || !productTmp.getProductName().equals("CHECK")) {
             System.out.println("Error - UPDATE is not working");
         }
         facade.deleteSportProduct(productId);
