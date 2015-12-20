@@ -18,7 +18,7 @@ public class SportProductDbDAO implements SportProductDAO {
     private static final String INSERT = "INSERT INTO sp_product (product_name, product_description, product_price) "
             + "VALUES (?, ?, ?)";
     private static final String UPDATE = "UPDATE sp_product SET product_name=?, product_description=?, product_price=? "
-            + "WHERE user_id = ?";
+            + "WHERE product_id = ?";
     private static final String DELETE = "DELETE FROM sp_product WHERE product_id = ?";
     private static final String SELECT_ONE = "SELECT * FROM sp_product WHERE product_id = ?";
     private static final String SELECT_ALL = "SELECT * FROM sp_product ORDER BY product_name";
@@ -53,7 +53,7 @@ public class SportProductDbDAO implements SportProductDAO {
                 PreparedStatement stmt = conn.prepareStatement(INSERT, new String[]{"product_id"});
                 stmt.setString(1, product.getProductName());
                 stmt.setString(2, product.getProductDescription());
-                stmt.setString(3, Integer.toString(product.getProductPrice()));
+                stmt.setInt(3, product.getProductPrice());
                 stmt.executeUpdate();
                 ResultSet gk = stmt.getGeneratedKeys();
                 while (gk.next()) {
@@ -78,7 +78,7 @@ public class SportProductDbDAO implements SportProductDAO {
                 PreparedStatement stmt = conn.prepareStatement(UPDATE);
                 stmt.setString(1, product.getProductName());
                 stmt.setString(2, product.getProductDescription());
-                stmt.setString(3, Integer.toString(product.getProductPrice()));
+                stmt.setInt(3, product.getProductPrice());
                 stmt.setLong(4, product.getProductId());
                 stmt.executeUpdate();
                 stmt.close();
@@ -121,7 +121,7 @@ public class SportProductDbDAO implements SportProductDAO {
                     product.setProductId(rs.getLong("product_id"));
                     product.setProductName(rs.getString("product_name"));
                     product.setProductDescription(rs.getString("product_description"));
-                    product.setProductPrice(Integer.valueOf(rs.getString("product_price")));
+                    product.setProductPrice(rs.getInt("product_price"));
                 }
                 rs.close();
                 stmt.close();
@@ -150,7 +150,7 @@ public class SportProductDbDAO implements SportProductDAO {
                     product.setProductId(rs.getLong("product_id"));
                     product.setProductName(rs.getString("product_name"));
                     product.setProductDescription(rs.getString("product_description"));
-                    product.setProductPrice(Integer.valueOf(rs.getString("product_price")));
+                    product.setProductPrice(rs.getInt("product_price"));
                     products.add(product);
                 }
                 rs.close();

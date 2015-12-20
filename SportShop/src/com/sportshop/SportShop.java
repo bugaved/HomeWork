@@ -27,6 +27,7 @@ public class SportShop
         productTmp.setProductName("CHECK");
         facade.updateSportProduct(productTmp);
         productTmp = facade.getSportProduct(productId);
+        System.out.println(productTmp.getProductName());
         if(productTmp == null || !productTmp.getProductName().equals("CHECK")) {
             System.out.println("Error - UPDATE is not working");
         }
