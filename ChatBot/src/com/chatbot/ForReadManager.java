@@ -8,25 +8,36 @@ import java.util.Random;
 
 public class ForReadManager {
 
-    public String readChat() { //read whole txt file, i just add that function for some reason
+   
+    String changed = null;
+
+    public String readChat(String path) { //read whole txt file, i just add that function for some reason
+
         BufferedReader br = null;
         String chatter = null;
+
         try {
-            br = new BufferedReader(new FileReader("C:\\chat.txt"));
+            br = new BufferedReader(new FileReader(path));
             chatter = br.readLine();
             if (chatter == null) {
                 System.out.println("not found file");
             }
-
         } catch (IOException ex1) {
         } finally {
             try {
                 br.close();
             } catch (IOException ex2) {
             }
-
         }
         return chatter;
+    }
+
+    public void changeChat(String x) {
+        
+        if (x != null) {
+            readChat(x);
+        }
+
     }
 
     public String readInput() { //read user input
@@ -39,9 +50,9 @@ public class ForReadManager {
         return userInput;
     }
 
-    public String randomAnswer() { //get random answer for chat.
+    public String randomAnswer(String path) { //get random answer for chat.
         String finalAnswer = null;
-        String chatter = readChat();
+        String chatter = readChat(path);
         String[] answer = chatter.split(";");
         Random randomGenerator = new Random();
         int randomInt = +randomGenerator.nextInt(10) * answer.length / 10;
